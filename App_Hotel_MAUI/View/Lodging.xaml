@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Hotel_MAUI.View.Lodging"
+             Title="Lodging">
+    <ContentPage.Resources>
+        <Style TargetType="HorizontalStackLayout">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Spacing" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="{Binding Selected_Bedroom.Name}"
+            Style="{ StaticResource lbl_title }"
+        />
+
+        <Border>
+            <Border.Content>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label
+                            Text="Quantidade de Adultos:"
+                            FontAttributes="Bold"
+                        />
+                        <Label
+                            Text="{ Binding Adult_Quantity }"
+                        />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label
+                            Text="Quantidade de Crianças:"
+                            FontAttributes="Bold"
+                        />
+                        <Label
+                            Text="{ Binding Child_Quantity }"
+                        />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border.Content>
+        </Border>
+
+        <Border>
+            <Border.Content>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label
+                            Text="Data de Check-In:"
+                            FontAttributes="Bold"
+                        />
+                        <Label
+                            Text="{ Binding CheckIn_Date, StringFormat='{}{0:dd/MM/yyyy}' }"
+                        />
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+                        <Label
+                            Text="Data de Check-Out:"
+                            FontAttributes="Bold"
+                        />
+                        <Label
+                            Text="{ Binding CheckOut_Date, StringFormat='{}{0:dd/MM/yyyy}' }"
+                        />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border.Content>
+        </Border>
+
+        <Border>
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Estadia (Dias):"
+                        FontAttributes="Bold"
+                    />
+                    <Label
+                        Text="{ Binding Stay }"
+                    />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label
+                        Text="Custo Total:"
+                        FontAttributes="Bold"
+                    />
+                    <Label
+                        Text="{ Binding Lodging_Cost, StringFormat='{}{0:C2}' }"
+                    />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+
+        <Button
+            x:Name="btn_voltar"
+            Text="Voltar"
+            Clicked="btn_voltar_Clicked"
+        />
+    </VerticalStackLayout>
+</ContentPage>

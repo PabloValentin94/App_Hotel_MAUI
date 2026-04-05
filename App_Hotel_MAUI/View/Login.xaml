@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Hotel_MAUI.View.Login"
+             Title="Login">
+    <VerticalStackLayout
+        VerticalOptions="Center"
+    >
+        <Label
+            Text="Login"
+            Style="{ StaticResource lbl_title }"
+        />
+
+        <Border>
+            <Border.Content>
+                <VerticalStackLayout>
+                    <VerticalStackLayout>
+                        <Label
+                            Text="E-mail:"
+                            FontAttributes="Bold"
+                        />
+                        <Entry
+                            x:Name="txt_email"
+                            Placeholder="Digite seu e-mail..."
+                            Keyboard="Email"
+                        />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label
+                            Text="Senha:"
+                            FontAttributes="Bold"
+                        />
+                        <Entry
+                            x:Name="txt_senha"
+                            Placeholder="Digite sua senha..."
+                            Keyboard="Password"
+                            IsPassword="True"
+                        />
+                    </VerticalStackLayout>
+
+                    <Button
+                        x:Name="btn_login"
+                        Text="Entrar"
+                        FontAttributes="Bold"
+                        Clicked="btn_login_Clicked"
+                    />
+                </VerticalStackLayout>
+            </Border.Content>
+        </Border>
+
+        <Button
+            x:Name="btn_action"
+            Text="Não possui login? Clique aqui."
+            Style="{ StaticResource btn_link }"
+            Clicked="btn_action_Clicked"
+        />
+    </VerticalStackLayout>
+</ContentPage>
