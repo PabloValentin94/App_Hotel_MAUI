@@ -34,6 +34,8 @@ public partial class Login : ContentPage
                 throw new Exception("Usuário não encontrado! Revise seus dados e tente novamente.");
             }
 
+            await SecureStorage.Default.SetAsync("auth_user", auth_user.Email);
+
             OpenPage(new DailyAllowanceCalculation());
         }
         catch (Exception ex)

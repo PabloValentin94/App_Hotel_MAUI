@@ -3,118 +3,131 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App_Hotel_MAUI.View.DailyAllowanceCalculation"
              Title="DailyAllowanceCalculation">
-    <VerticalStackLayout>
-        <Label
-            Text="Cálculo da Diária"
-            Style="{ StaticResource lbl_title }"
-        />
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label
+                Text="Cálculo da Diária"
+                Style="{ StaticResource lbl_title }"
+            />
 
-        <Border>
-            <Grid
-                RowDefinitions="Auto, Auto"
-                ColumnDefinitions="Auto, Auto, *"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-            >
-                <Label
-                    Text="Adultos"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                />
-                <Label
-                    Text="{ Binding Value }"
-                    BindingContext="{ x:Reference stp_adult_quantity }"
-                    Grid.Row="0"
-                    Grid.Column="1"
-                />
-                <Stepper
-                    x:Name="stp_adult_quantity"
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Minimum="1"
-                    Maximum="5"
-                    Increment="1"
-                    ValueChanged="stepper_quantity_ValueChanged"
-                />
+            <Label
+                x:Name="lbl_auth_user"
+            />
 
-                <Label
-                    Text="Crianças"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                />
-                <Label
-                    Text="{ Binding Value }"
-                    BindingContext="{ x:Reference stp_child_quantity }"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                />
-                <Stepper
-                    x:Name="stp_child_quantity"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Minimum="0"
-                    Maximum="5"
-                    Increment="1"
-                    ValueChanged="stepper_quantity_ValueChanged"
-                />
-            </Grid>
-        </Border>
-
-        <Border>
-            <VerticalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-            >
-                <Label
-                    Text="Quarto:"
-                />
-                <Picker
-                    x:Name="pck_bedroom"
-                    ItemDisplayBinding="{ Binding Name }"
-                />
-            </VerticalStackLayout>
-        </Border>
-
-        <Border>
-            <VerticalStackLayout
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-            >
-                <Label
-                    Text="Período de Estadia:"
-                />
-                
-                <HorizontalStackLayout
+            <Border>
+                <Grid
+                    RowDefinitions="Auto, Auto"
+                    ColumnDefinitions="Auto, Auto, *"
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                 >
                     <Label
-                        Text="Entrada:"
+                        Text="Adultos"
+                        Grid.Row="0"
+                        Grid.Column="0"
                     />
-                    <DatePicker
-                        x:Name="dtpck_checkin_date"
-                        DateSelected="dtpck_checkin_date_DateSelected"
+                    <Label
+                        Text="{ Binding Value }"
+                        BindingContext="{ x:Reference stp_adult_quantity }"
+                        Grid.Row="0"
+                        Grid.Column="1"
                     />
-                </HorizontalStackLayout>
-                
-                <HorizontalStackLayout
+                    <Stepper
+                        x:Name="stp_adult_quantity"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Minimum="1"
+                        Maximum="5"
+                        Increment="1"
+                        ValueChanged="stepper_quantity_ValueChanged"
+                    />
+
+                    <Label
+                        Text="Crianças"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                    />
+                    <Label
+                        Text="{ Binding Value }"
+                        BindingContext="{ x:Reference stp_child_quantity }"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                    />
+                    <Stepper
+                        x:Name="stp_child_quantity"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Minimum="0"
+                        Maximum="5"
+                        Increment="1"
+                        ValueChanged="stepper_quantity_ValueChanged"
+                    />
+                </Grid>
+            </Border>
+
+            <Border>
+                <VerticalStackLayout
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                 >
                     <Label
-                        Text="Saída:"
+                        Text="Quarto:"
                     />
-                    <DatePicker
-                        x:Name="dtpck_checkout_date"
+                    <Picker
+                        x:Name="pck_bedroom"
+                        ItemDisplayBinding="{ Binding Name }"
                     />
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Border>
+                </VerticalStackLayout>
+            </Border>
 
-        <Button
-            x:Name="btn_calculate_daily_allowance"
-            Text="Calcular"
-            Clicked="btn_calculate_daily_allowance_Clicked"
-        />
-    </VerticalStackLayout>
+            <Border>
+                <VerticalStackLayout
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                >
+                    <Label
+                        Text="Período de Estadia:"
+                    />
+                
+                    <HorizontalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                    >
+                        <Label
+                            Text="Entrada:"
+                        />
+                        <DatePicker
+                            x:Name="dtpck_checkin_date"
+                            DateSelected="dtpck_checkin_date_DateSelected"
+                        />
+                    </HorizontalStackLayout>
+                
+                    <HorizontalStackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                    >
+                        <Label
+                            Text="Saída:"
+                        />
+                        <DatePicker
+                            x:Name="dtpck_checkout_date"
+                        />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button
+                x:Name="btn_calculate_daily_allowance"
+                Text="Calcular"
+                Clicked="btn_calculate_daily_allowance_Clicked"
+            />
+
+            <Button
+                x:Name="btn_logout"
+                Text="Logout"
+                Style="{ StaticResource btn_link }"
+                Clicked="btn_logout_Clicked"
+            />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

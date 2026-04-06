@@ -30,10 +30,37 @@ public partial class DailyAllowanceCalculation : ContentPage
 	{
 		InitializeComponent();
 
-        PrepareControls();
+        PrepareDateComponentsValidations();
     }
 
-    private void PrepareControls()
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        ApplyAuthConfigurations();
+    }
+
+    private async void ApplyAuthConfigurations()
+    {
+        string? auth_user = await SecureStorage.Default.GetAsync("auth_user");
+
+        if (!String.IsNullOrWhiteSpace(auth_user))
+        {
+            lbl_auth_user.IsVisible = true;
+
+            lbl_auth_user.Text = auth_user;
+
+            btn_logout.IsVisible = true;
+        }
+        else
+        {
+            lbl_auth_user.IsVisible = false;
+
+            btn_logout.IsVisible = false;
+        }
+    }
+
+    private void PrepareDateComponentsValidations()
     {
         // Preenchendo o seletor de suítes.
 
@@ -110,6 +137,16 @@ public partial class DailyAllowanceCalculation : ContentPage
         if (e.NewValue > stepper.Maximum)
         {
             stepper.Value = stepper.Maximum;
+        }
+    }
+
+    private async void btn_logout_Clicked(object sender, EventArgs e)
+    {
+        if (await DisplayAlertAsync("Atenção!", "Realmente deseja encerrar a sessão no aplicativo?", "Sim", "Não"))
+        {
+            SecureStorage.Default.RemoveAll();
+
+            ApplyAuthConfigurations();
         }
     }
 }
