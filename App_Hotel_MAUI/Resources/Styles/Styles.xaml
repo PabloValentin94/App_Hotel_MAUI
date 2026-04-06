@@ -83,6 +83,7 @@
     </Style>
 
     <Style TargetType="DatePicker">
+        <Setter Property="Format" Value="dd/MM/yyyy" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>

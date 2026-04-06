@@ -4,12 +4,16 @@
     {
         // Campos.
 
-        private Bedroom selected_bedroom = new Bedroom();
+        private Bedroom _selected_bedroom = new Bedroom();
+
+        private int _adult_quantity = 0;
+
+        private int _child_quantity = 0;
 
         // Atributos.
 
         public Bedroom Selected_Bedroom {
-            get => this.selected_bedroom;
+            get => this._selected_bedroom;
             set
             {
                 if (value == null)
@@ -17,13 +21,33 @@
                     throw new Exception("Um quarto válido deve ser especificado!");
                 }
 
-                this.selected_bedroom = value;
+                this._selected_bedroom = value;
             }
         }
 
-        public int Adult_Quantity { get; set; } = 0;
+        public int Adult_Quantity
+        {
+            get => this._adult_quantity;
+            set
+            {
+                if (value > 0)
+                {
+                    this._adult_quantity = value;
+                }
+            }
+        }
 
-        public int Child_Quantity { get; set; } = 0;
+        public int Child_Quantity
+        {
+            get => this._child_quantity;
+            set
+            {
+                if (value >= 0)
+                {
+                    this._child_quantity = value;
+                }
+            }
+        }
 
         public DateTime CheckIn_Date { get; set; }
 

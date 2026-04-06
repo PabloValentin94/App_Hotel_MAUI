@@ -15,7 +15,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{ DataTemplate view:DailyAllowanceCalculation }"
+        ContentTemplate="{ DataTemplate view:Login }"
         Route="DailyAllowanceCalculation" />
 
 </Shell>

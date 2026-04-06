@@ -34,6 +34,7 @@
                     Minimum="1"
                     Maximum="5"
                     Increment="1"
+                    ValueChanged="stepper_quantity_ValueChanged"
                 />
 
                 <Label
@@ -51,9 +52,10 @@
                     x:Name="stp_child_quantity"
                     Grid.Row="1"
                     Grid.Column="2"
-                    Minimum="1"
+                    Minimum="0"
                     Maximum="5"
                     Increment="1"
+                    ValueChanged="stepper_quantity_ValueChanged"
                 />
             </Grid>
         </Border>
@@ -63,9 +65,11 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
             >
+                <Label
+                    Text="Quarto:"
+                />
                 <Picker
                     x:Name="pck_bedroom"
-                    Title="Selecione um Quarto:"
                     ItemDisplayBinding="{ Binding Name }"
                 />
             </VerticalStackLayout>
@@ -89,7 +93,6 @@
                     />
                     <DatePicker
                         x:Name="dtpck_checkin_date"
-                        Format="dd/MM/yyyy"
                         DateSelected="dtpck_checkin_date_DateSelected"
                     />
                 </HorizontalStackLayout>
@@ -103,8 +106,6 @@
                     />
                     <DatePicker
                         x:Name="dtpck_checkout_date"
-                        Format="dd/MM/yyyy"
-                        DateSelected="dtpck_checkout_date_DateSelected"
                     />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
